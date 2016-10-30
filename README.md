@@ -1,4 +1,4 @@
-# node-file-stream-upload
+# node-async-module
 
 It is a example of building and requiring an async singleton module. Before the obj is init-ed, throw error message when it is called. 
 
