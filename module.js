@@ -8,22 +8,23 @@ var OBJ = function() {
     var isInit = false; //control init flag 
 
     // a function that wait until isInit finished, 
-    var baseFunction = function(cb){
-            if(!isInit){
-                return new Error('OBJ is not init');
-            }
-            else {
-                if(cb){
-                    return cb() ;
-                }
-            }
+    var _initVerify = function(){
+        if(!isInit){
+            throw new Error('OBJ is not init');
+        }
     }
 
     var increase = function(){
-        return baseFunction(function(){
+        try{
+            
+            _initVerify()
+
             x = x + 1;
             return x;
-        })
+        }
+        catch(err){
+            return err
+        }
     }
 
 
