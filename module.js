@@ -3,11 +3,11 @@
 var OBJ = function() {
 
     console.log(' constructor OBJ')
-    // var x = {value: 0};
+
     var x = 0;
+    var isInit = false; //control init flag 
 
-    var isInit = false; 
-
+    // a function that wait until isInit finished, 
     var baseFunction = function(cb){
             if(!isInit){
                 return new Error('OBJ is not init');
