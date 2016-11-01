@@ -3,17 +3,30 @@
 var OBJ = function() {
 
     console.log(' constructor OBJ')
+    // var x = {value: 0};
     var x = 0;
+
     var isInit = false; 
 
-    var increase = function() {
-        if(!isInit){
-            return new Error('OBJ is not init');
-        }
-        else {
-            return x++;
-        }
-    } 
+    var baseFunction = function(cb){
+            if(!isInit){
+                return new Error('OBJ is not init');
+            }
+            else {
+                if(cb){
+                    return cb() ;
+                }
+            }
+    }
+
+    var increase = function(){
+        return baseFunction(function(){
+            x = x + 1;
+            return x;
+        })
+    }
+
+
 
 
     console.log('goint to init ... 3s')
